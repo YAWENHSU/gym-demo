@@ -3,6 +3,9 @@
 *.a
 *.so
 
+# 忽略影音檔
+videos/
+
 # Folders
 _obj
 _test
