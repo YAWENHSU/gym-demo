@@ -6,27 +6,56 @@
 <head> <!--引用外部的程式邏輯-->
     <meta charset="utf-8">
     <title>健身網站</title>
+    <style>
+        /* class => . */
+        .banner {
+            background-color: rgb(234, 125, 234);
+            color: white;
+            padding: 12px;
+            /* 1rem=16px */
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+
+        .image-style {
+            background-color: black;
+            padding: 6px;
+            border-radius: 6px;
+        }
+
+        .image-list {
+            text-align: center;
+            padding: 12px;
+            background-color: aquamarine;
+            margin-bottom: 6px;
+        }
+    </style>
 </head>
 
 
 <!--可視區-->
 
 <body>
-    <p>
-    <h1>健身，英文稱為<u>workout</u></h1>健身這兩個字拆開來的意思就是健康身體，通過各種運動方式或方法來增強力量、增加肌肉量、柔韌性、耐力，以及提高協調和控制身體各部分的能力來使我們的身體更強健。
-    除了塑造好身材，透過健身可以刺激我們身體的肌肉，再搭配飲食的控制，這能大大幫助我們的肌肉量增加，以及讓我們的肌肉更加的結實。
-    </p>
-    <p>
-        <em>
-            如果你對健身仍然保持著懷疑的態度，那你大可以去看看你喜歡的健身老戲骨幹，他們是如何做到年過50/60歲，<br>依舊在
-            舞臺上或者是電影螢幕上綻放光彩。答案就是堅持<b><span>運動健身!</span></b>
-        </em>
-    </p>
+    <h1
+        style="color:blue;background-color:#6ebcee; padding: 24px; margin: 0px; text-align: center; border:2px solid black">
+        健身，英文稱為<u>workout</u>
+    </h1>
+    <div style="background-color: antiquewhite;">
+        <p>
+            健身這兩個字拆開來的意思就是健康身體，通過各種運動方式或方法來增強力量、增加肌肉量、柔韌性、耐力，以及提高協調和控制身體各部分的能力來使我們的身體更強健。
+            除了塑造好身材，透過健身可以刺激我們身體的肌肉，再搭配飲食的控制，這能大大幫助我們的肌肉量增加，以及讓我們的肌肉更加的結實。<br>
+            <em>
+                如果你對健身仍然保持著懷疑的態度，那你大可以去看看你喜歡的健身老戲骨幹，他們是如何做到年過50/60歲，<br>
+                依舊在舞臺上或者是電影螢幕上綻放光彩。答案就是堅持<b><span
+                        style="color:white;background-color:lightcoral;font-size: 24px ;">運動健身!</span></b>
+            </em>
+        </p>
+    </div>
     <hr>
     <a target="_blank" href="https://fitnesstwenty.com/benefits-of-workout/">
         <img src="https://fitnesstwenty.com/wp-content/uploads/2020/10/71.jpg" width="100%" alt="1024x320.jpg">
     </a>
-    <h2>&clubs;健身的10個好處</h2>
+    <div class="banner" style="color:white;background-color:rgb(234, 158, 234); padding: 12px;">&clubs;健身的10個好處</div>
     <ol type="A"> <!--<ol>才可排序。type="1"  ==>阿拉伯數字,  type="A" ==>英文字母,  type="i" ==>羅馬數字-->
         <li>增加基礎代謝率</li>
         <li>預防疾病和提高免疫力</li>
@@ -40,11 +69,13 @@
         <li>增加肌肉助於減肥</li>
     </ol>
     <hr>
-    <!--500pixel-->
-    <img src="./images/hayley-kim-studios-eot-ka5dM7Q-unsplash.jpg" width="30%" alt="">
-    <img src="./images/logan-weaver-lgnwvr-mi4Gfdl36yg-unsplash.jpg" width="30%" alt="">
-    <img src="./images/john-fornander-TAZoUmDqzXk-unsplash.jpg" width="30%" alt="">
-    <h2>&clubs;好文章連結</h2>
+    <div class="image-list">
+        <!--500pixel-->
+        <img class="image-style" src="./images/hayley-kim-studios-eot-ka5dM7Q-unsplash.jpg" width="30%" alt="">
+        <img class="image-style" src="./images/logan-weaver-lgnwvr-mi4Gfdl36yg-unsplash.jpg" width="30%" alt="">
+        <img class="image-style" src="./images/john-fornander-TAZoUmDqzXk-unsplash.jpg" width="30%" alt="">
+    </div>
+    <div class="banner">&clubs;好文章連結</div>
     <a target="_blank" href="https://www.fe-amart.com.tw/index.php/life-style/life-info/secret-recipe/hero-6">
         <b>健身初學者必看！10個常見的健身迷思</b><br>
     </a>
@@ -80,7 +111,7 @@
         </a>
     </small>
     <hr>
-    <h2>一天所需卡路里</h2>
+    <div class="banner">一天所需卡路里</div>
     <table width="100%" border="0" cellspacing="0" cellpadding="0"
         style="width: 100%; border-collapse: collapse; border: 1px solid #666666;"
         summary="根據每日活動量及為了調整體重至健康體重，可計算每日建議攝取熱量">
@@ -188,7 +219,7 @@
     因他的工作為坐辦公室，屬輕量工作，每天攝取熱量應在1300至1625大卡之間(=20~25大卡*65公斤)。
 
     <hr>
-    <h2>健身影片</h2>
+    <div class="banner">健身影片</div>
     <iframe width="100%" height="457px" src="https://www.youtube.com/embed/LmrKejHOaG4"
         title="男女適用!! 20分鐘 站立式全身燃脂運動、不跳躍、不傷膝、簡單有效" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -201,7 +232,7 @@
     <video src="./videos/file_example_MP4_1280_10MG.mp4" controls width="100%">
         影片載入失效
     </video>
-    <h2>表單填寫</h2>
+    <div class="banner">表單填寫</div>
     <h2>需要更多資訊?免費索取健身資訊</h2>
     <h3>前100名還贈送［我愛健身］書籍一本!</h3>
 
