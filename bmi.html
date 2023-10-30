@@ -15,10 +15,10 @@
         <input type="text" id="username" name="username" value="jerry"><br>
 
         <label for="password">密碼</label>
-        <input type="password" id="password" name="password" required><br>
+        <input type="password" id="password" name="password"><br>
 
         <label for="birthday">生日</label>
-        <input type="date" id="birthday" name="birthday" required><br>
+        <input type="date" id="birthday" name="birthday"><br>
 
         <label for="height">身高</label>
         <input type="number" id="height" name="height" value="165" step="0.1" required><br>
@@ -27,15 +27,66 @@
         <input type="number" id="weight" name="weight" value="60" step="0.1" required><br>
 
         <label for="email">信箱</label>
-        <input type="email" id="email" name="email" placeholder="請輸入email" required><br>
+        <input type="email" id="email" name="email" placeholder="請輸入email"><br>
 
         <p>
-            <button>計算</button>
+            <input type="button" id="calc" value="計算" onclick="calcBMI()"></input>
             <a href="./index.html">返回</a>
         </p>
+        <h2 class="bmi-result">
+            BMI:
 
+        </h2>
     </form>
+    <script>
+        function calcBMI() {
+            //計算BMI
+            let bmi = getBMI(heightEl.value, weightEl.value);
+            //console.log(bmi);
+            //document.write(`BMI:${bmi}`);
+            //bmiResultEl.innerText = `BMI:${bmi}`;
 
+            //輸出BMI評語
+            let comment = "";
+            for (let i = 0; i < BMI_COMMENTS.length; i++) {
+                if (bmi < BMI_COMMENTS[i][0]) {
+                    comment = BMI_COMMENTS[i][1];
+                    break;
+                }
+
+            }
+            bmiResultEl.innerHTML = `BMI:${bmi}<br>${comment}`;
+
+        }
+
+        function getBMI(height, weight) {
+            if (height == "" || weight == "") {
+                return "請輸入"
+            }
+            let bmi = weight / (height / 100) ** 2;
+            if (isNaN(bmi)) {
+                return "輸入錯誤!";
+            }
+            return bmi.toFixed(2);
+        }
+
+        const BMI_COMMENTS = [
+            [18.5, "「體重過輕」，需要多運動，均衡飲食，以增加體能，維持健康！"],
+            [24, "恭喜！「健康體重」，要繼續保持！"],
+            [27, "「體重過重」了，要小心囉，趕快力行「健康體重管理」！"],
+            [100, "啊～「肥胖」，需要立刻力行「健康體重管理」囉！"],
+        ]
+
+        //取得元素
+        const calcBtn = document.querySelector("#calc");
+        const heightEl = document.querySelector("#height");
+        const weightEl = document.querySelector("#weight");
+        const bmiResultEl = document.querySelector(".bmi-result");
+        console.log(calcBtn, heightEl, weightEl, bmiResultEl);
+
+        //監聽按鈕
+        //calcBtn.addEventListener("click", calc);
+    </script>
 </body>
 
 </html>
