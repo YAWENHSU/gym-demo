@@ -5,6 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI計算機</title>
+
+    <style>
+        body {
+            text-align: center;
+            background-color: antiquewhite;
+        }
+
+        form {
+            width: 600px;
+            height: 180px;
+            margin: 0 auto;
+            border-radius: 12px;
+            background-color: rgb(227, 212, 161);
+            padding: 24px;
+        }
+
+        input {
+            text-align: center;
+        }
+
+        #calc {
+            width: 100px;
+            background-color: rgb(195, 187, 168);
+            text-align: center;
+        }
+
+        .bmi-result {
+            background-color: rgb(205, 135, 85);
+            color: rgb(255, 255, 255);
+
+        }
+    </style>
 </head>
 
 <body>
@@ -24,7 +56,7 @@
         <input type="number" id="height" name="height" value="165" step="0.1" required><br>
 
         <label for="weight">體重</label>
-        <input type="number" id="weight" name="weight" value="60" step="0.1" required><br>
+        <input type="text" id="weight" name="weight" value="60" step="0.1" required><br>
 
         <label for="email">信箱</label>
         <input type="email" id="email" name="email" placeholder="請輸入email"><br>
@@ -33,21 +65,34 @@
             <input type="button" id="calc" value="計算" onclick="calcBMI()"></input>
             <a href="./index.html">返回</a>
         </p>
-        <h2 class="bmi-result">
-            BMI:
 
-        </h2>
     </form>
+    <h1 class="bmi-result"></h1>
+
+    <h3 class="bmi-comment"></h3>
     <script>
+
+        //document.querySelector("h1").innerHTML="<u>超級計算機<u>"
+        //let height=document.querySelector("#height").value;
+        //let weight=document.querySelector("#weight").value;
+        //let bmi=weight/(height/100)**2;
+        //console.log(bmi);
+        //取到小數點後第2位
+        //document.write(`BMI:${bmi.toFixed(2)}`);
+
         function calcBMI() {
             //計算BMI
             let bmi = getBMI(heightEl.value, weightEl.value);
+            console.log(bmi);
+            bmiResultEl.innerText = `BMI:${bmi}`;
+
+
             //console.log(bmi);
             //document.write(`BMI:${bmi}`);
             //bmiResultEl.innerText = `BMI:${bmi}`;
 
-            //輸出BMI評語
             let comment = "";
+            //迴圈查找評語
             for (let i = 0; i < BMI_COMMENTS.length; i++) {
                 if (bmi < BMI_COMMENTS[i][0]) {
                     comment = BMI_COMMENTS[i][1];
@@ -55,13 +100,14 @@
                 }
 
             }
-            bmiResultEl.innerHTML = `BMI:${bmi}<br>${comment}`;
+
+            bmiCommentEl.innerText = comment;
 
         }
 
         function getBMI(height, weight) {
             if (height == "" || weight == "") {
-                return "請輸入"
+                return "輸入不能為空"
             }
             let bmi = weight / (height / 100) ** 2;
             if (isNaN(bmi)) {
@@ -82,10 +128,20 @@
         const heightEl = document.querySelector("#height");
         const weightEl = document.querySelector("#weight");
         const bmiResultEl = document.querySelector(".bmi-result");
+        const bmiCommentEl = document.querySelector(".bmi-comment");
+
         console.log(calcBtn, heightEl, weightEl, bmiResultEl);
 
+
         //監聽按鈕
+        //calcBtn.addEventListener(偵測是否有點擊, 呼叫的函式名稱);
         //calcBtn.addEventListener("click", calc);
+        //calcBtn.addEventListener("click", () => {
+        //    let bmi = getBMI(heightEl.value, weightEl.value);
+        //    console.log(bmi);
+        //document.write(`BMI:${bmi}`);
+        //});
+
     </script>
 </body>
 
