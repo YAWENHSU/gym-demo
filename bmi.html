@@ -5,6 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI計算機</title>
+
+    <style>
+        body {
+            text-align: center;
+            background-color: antiquewhite;
+        }
+
+        form {
+            width: 600px;
+            height: 180px;
+            margin: 0 auto;
+            border-radius: 12px;
+            background-color: rgb(227, 212, 161);
+            padding: 24px;
+        }
+
+        input {
+            text-align: center;
+        }
+
+        #calc {
+            width: 100px;
+            background-color: rgb(195, 187, 168);
+            text-align: center;
+        }
+
+        .bmi-result {
+            background-color: rgb(205, 135, 85);
+            color: rgb(255, 255, 255);
+
+        }
+    </style>
 </head>
 
 <body>
@@ -33,11 +65,11 @@
             <input type="button" id="calc" value="計算" onclick="calcBMI()"></input>
             <a href="./index.html">返回</a>
         </p>
-        <h2 class="bmi-result">
-            BMI:
 
-        </h2>
     </form>
+    <h1 class="bmi-result"></h1>
+
+    <h3 class="bmi-comment"></h3>
     <script>
         function calcBMI() {
             //計算BMI
@@ -46,8 +78,8 @@
             //document.write(`BMI:${bmi}`);
             //bmiResultEl.innerText = `BMI:${bmi}`;
 
-            //輸出BMI評語
             let comment = "";
+            //迴圈查找評語
             for (let i = 0; i < BMI_COMMENTS.length; i++) {
                 if (bmi < BMI_COMMENTS[i][0]) {
                     comment = BMI_COMMENTS[i][1];
@@ -55,13 +87,14 @@
                 }
 
             }
-            bmiResultEl.innerHTML = `BMI:${bmi}<br>${comment}`;
+            bmiResultEl.innerText = `BMI:${bmi}`;
+            bmiCommentEl.innerText = comment;
 
         }
 
         function getBMI(height, weight) {
             if (height == "" || weight == "") {
-                return "請輸入"
+                return "輸入不能為空"
             }
             let bmi = weight / (height / 100) ** 2;
             if (isNaN(bmi)) {
@@ -82,7 +115,10 @@
         const heightEl = document.querySelector("#height");
         const weightEl = document.querySelector("#weight");
         const bmiResultEl = document.querySelector(".bmi-result");
+        const bmiCommentEl = document.querySelector(".bmi-comment");
+
         console.log(calcBtn, heightEl, weightEl, bmiResultEl);
+
 
         //監聽按鈕
         //calcBtn.addEventListener("click", calc);
